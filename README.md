@@ -2,6 +2,8 @@
 
 A custom MacBook Touch Bar with app shortcuts, backgrounds, media controls, and typing suggestions. Built with Swift, AppKit, and SwiftUI. No third-party packages.
 
+![MacBar in the Showcase window, with a custom background, profile shortcut, and media and system controls](docs/images/macbar-showcase.png)
+
 Requires macOS 13 or later and Xcode or the Swift command-line tools. The settings preview works without Touch Bar hardware.
 
 ## Build
