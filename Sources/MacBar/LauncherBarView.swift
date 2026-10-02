@@ -54,6 +54,7 @@ final class LauncherBarView: NSView {
     private let status = StatusView()
     private let suggestionsView = SuggestionsView()
     private(set) var panel: Panel = .none
+    var backgroundOverride: NSImage?
     private var isTyping = false
     private var typingProgress: CGFloat = 0
     private var animationTimer: Timer?
@@ -224,8 +225,8 @@ final class LauncherBarView: NSView {
     }
 
     func update(store: LauncherStore) {
-        backdrop.image = store.backgroundImage
-        backdrop.mode = store.background.mode
+        backdrop.image = backgroundOverride ?? store.backgroundImage
+        backdrop.mode = backgroundOverride == nil ? store.background.mode : .fill
         guard displayedApps != store.apps else { return }
         displayedApps = store.apps
         buttons.forEach { $0.removeFromSuperview() }

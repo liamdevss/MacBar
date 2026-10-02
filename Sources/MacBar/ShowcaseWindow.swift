@@ -58,6 +58,12 @@ final class ShowcaseView: NSView {
     private let replay = GlassButton()
     private let hint = NSTextField(labelWithString: "Click the bar to use it  ·  ⌘⇧5 to record")
 
+    private static let background: NSImage? = {
+        let url = Bundle.main.url(forResource: "ShowcaseBackground", withExtension: "jpg")
+            ?? Bundle.module.url(forResource: "ShowcaseBackground", withExtension: "jpg", subdirectory: "Assets")
+        return url.flatMap(NSImage.init(contentsOf:))
+    }()
+
     private static let unit: CGFloat = 74
     private static let rowWidth: CGFloat = unit * 14.5
     private static let keyGap: CGFloat = 6
@@ -98,6 +104,7 @@ final class ShowcaseView: NSView {
         self.store = store
         let height = Self.margin * 2 + 34 + 12 + Self.unit * 5 + 150
         super.init(frame: NSRect(x: 0, y: 0, width: Self.rowWidth + Self.margin * 2, height: height))
+        launcher.backgroundOverride = Self.background
         launcher.update(store: store)
         addSubview(launcher)
         replay.setTitle("Replay Welcome")
