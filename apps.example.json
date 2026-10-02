@@ -1,0 +1,8 @@
+{
+  "apps": [
+    { "name": "Finder", "bundleIdentifier": "com.apple.finder" },
+    { "name": "Safari", "bundleIdentifier": "com.apple.Safari" },
+    { "name": "Notes", "bundleIdentifier": "com.apple.Notes" },
+    { "name": "Terminal", "bundleIdentifier": "com.apple.Terminal" }
+  ]
+}
